@@ -31,5 +31,9 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "restaurant": {
+    "dataSource": "db",
+    "public": true
   }
 }
