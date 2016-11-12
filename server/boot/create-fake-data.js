@@ -2,10 +2,17 @@
 
 module.exports = function(app) {
 
+
+
+
     app.dataSources.db.automigrate('Restaurant', function(err) {
         if (err) throw err;
     });
 
+    var fs = require('restaurant.json');
+    var obj = JSON.parse(fs.readFileSync('restaurant.json', 'utf8'));
+    console.log(obj)
+    /*
     app.models.Restaurant.create([
         {
             id: '1',
@@ -21,6 +28,6 @@ module.exports = function(app) {
         if (err) throw err;
 
         console.log('Models created:\n', restaurants);
-    });
+    });*/
 
 };
