@@ -1,4 +1,7 @@
 <h1 class="text-center">Select Friends</h1>
-<ul ng-repeat="friend in friends">
-    <li>{{ friend.name }}</li>
+<ul id="select-friends">
+    <li style="list-style: none;" ng-repeat="friend in friends">
+        <input type="checkbox" value="{{ friend.name }}" style="margin-right: 15px;">{{ friend.name }}
+    </li>
 </ul>
+<button class="button-primary center-block" ng-click="getSuggestions()">Get Suggestions</button>
