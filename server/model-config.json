@@ -35,5 +35,9 @@
   "restaurant": {
     "dataSource": "db",
     "public": true
+  },
+  "chain": {
+    "dataSource": "db",
+    "public": true
   }
 }
