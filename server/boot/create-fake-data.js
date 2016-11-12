@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function(app) {
-/*
-    app.dataSources.mysqlDs.automigrate('Restaurant', function(err) {
+
+    app.dataSources.db.automigrate('Restaurant', function(err) {
         if (err) throw err;
     });
 
@@ -22,5 +22,5 @@ module.exports = function(app) {
 
         console.log('Models created:\n', restaurants);
     });
-*/
+
 };
