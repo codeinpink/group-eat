@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mysqlDs": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "group_eat",
+    "password": "password",
+    "name": "mysqlDs",
+    "user": "base",
+    "connector": "mysql"
   }
 }

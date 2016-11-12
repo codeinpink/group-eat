@@ -32,12 +32,12 @@
     "dataSource": "db",
     "public": false
   },
-  "restaurant": {
-    "dataSource": "db",
+  "Restaurant": {
+    "dataSource": "mysqlDs",
     "public": true
   },
-  "chain": {
-    "dataSource": "db",
+  "Chain": {
+    "dataSource": "mysqlDs",
     "public": true
   }
 }

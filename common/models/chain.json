@@ -1,5 +1,5 @@
 {
-  "name": "chain",
+  "name": "Chain",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
