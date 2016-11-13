@@ -4,20 +4,21 @@
 module.exports = function(customers){
   var purchases = {}
   var loaded = 0
-  for(var id in customers){
-    //console.log(customers[id])
-   getTransactionHistory(customers[id], function(data) {
-       purchases[id] = data;
+
+  for (var i = 0; i < customers.length; i++){
+   getTransactionHistory(customers[i], function(data) {
+       purchases[i] = data;
        console.log("loaded")
        loaded++;
    })
   }
-  console.log(customers.length)
+
+  /*
   while(1){
     if(loaded == customers.length){
       break;
     }
-  }
+}*/
   //while(loaded < customers.length);
   console.log(purchases)
   //
@@ -70,34 +71,34 @@ module.exports = function(customers){
   }
 
 
-  function getTransactionHistory(customerid) {
+  function getTransactionHistory(customerid, callback) {
           var dataString = JSON.stringify(customerid);
           var headers = {'Content-Type': 'application/json'};
           var apikey = "b51f1f20dc792805a0d31287e4da778b";
           var host = "api.reimaginebanking.com";
-          var endpoint = "/acccounts/"+customerid+"/purchases?key="+apikey;
+          var endpoint = "/accounts/"+customerid+"/purchases?key="+apikey;
           var options = {
               host: host,
               path: endpoint,
-              method: "GET",
               headers: headers
           };
 
           var http = require('http');
-          var req = http.get(options, function(res) {
+          http.get(options, function(response) {
               var responseString = '';
-              res.on('data', function(data) {
+              response.on('data', function(data) {
                   responseString += data;
               });
 
-              res.on('end', function() {
+              response.on('end', function() {
                   //console.log(responseString);
                   var responseObject = JSON.parse(responseString);
-                  return responseObject;
+                  console.log(responseObject);
+                  callback(responseObject);
               });
           });
 
-          req.end();
+          //req.end();
   }
 
 }

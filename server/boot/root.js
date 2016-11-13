@@ -6,7 +6,7 @@ module.exports = function(server) {
   var router = server.loopback.Router();
   router.get('/suggestions/', function(req, res) {
       const suggestion = require('../suggestion.js');
-      res.send({suggestions: suggestion(req.query.friends)});
+      res.send({suggestions: suggestion(JSON.parse(req.query.friends))});
   })
   server.use(router);
 };
