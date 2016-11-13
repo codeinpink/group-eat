@@ -5,12 +5,16 @@ module.exports = function(customers){
   var purchases = {}
   var loaded = 0
 
-  for (var i = 0; i < customers.length; i++){
-   getTransactionHistory(customers[i], function(data) {
+  for (var i = 0; i < customers.length; i++) {
+    getTransactionHistory(customers[i], function(data) {
        purchases[i] = data;
        console.log("loaded")
        loaded++;
-   })
+
+       if (loaded == customers.length) {
+
+       }
+  });
   }
 
   /*
