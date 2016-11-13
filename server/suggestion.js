@@ -25,10 +25,10 @@ function matrixAlgorithm(purchases) {
        var count = occurence(rest, restaurants)
        if count == 1 {
          have_been[i]++;
-       }if count == 1 {
+       }if (count == 1) {
          have_been[i]++;
        }
-       if count > 1 {
+       if (count > 1) {
          have_been[i] = have_been[i]*1.01;
        }
      }
