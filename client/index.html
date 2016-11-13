@@ -32,9 +32,22 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+  <nav class="navbar">
+      <div class="container">
+          <ul class="navbar-list">
+              <li class="navbar-item"><a class="navbar-link" href="/#/">Home</a></li>
+              <li class="navbar-item"><a class="navbar-link" href="/#/about">About</a></li>
+              <li class="navbar-item" style="float: right;">
+                  Logged in as <a class="navbar-link" href="#">Sam</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
   <div class="container">
     <div class="row">
-      <div class="twelve column" style="margin-top: 25%" ng-app="app">
+      <div class="twelve column" style="margin-top: 10%" ng-app="app">
           <div ui-view></div>
       </div>
     </div>
@@ -42,12 +55,16 @@
 
   <!-- JS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuJ_5-OawbzgQ8ehMXwtdzmtjlA6Ps8fA&libraries=places"></script>
   <script src="vendor/angular.min.js"></script>
   <script src="vendor/angular-resource.min.js"></script>
   <script src="vendor/angular-ui-router.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/services/lb-services.js"></script>
+  <script src="js/services/google-places.js"></script>
+  <script src="js/services/suggestions.js"></script>
   <script src="js/controllers/friend-selection.js"></script>
+  <script src="js/controllers/suggestions.js"></script>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
