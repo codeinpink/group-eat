@@ -58,8 +58,8 @@ module.exports = function(customers){
   function getMax(restaurants){
     var max = -1;
     var max_id = 0;
-    for each (var id in restaurants){
-      if restaurants[id] >= max ){
+    for(var id in restaurants){
+      if (restaurants[id] >= max ){
         max = restaurants[id]
         max_id = id
       }
