@@ -14,6 +14,7 @@ module.exports = function(customers){
        if (loaded == customers.length) {
 
        }
+  });
   }
 
   /*
