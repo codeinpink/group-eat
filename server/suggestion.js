@@ -5,7 +5,7 @@ module.exports = function(customers){
   for(var id in friends){
    purchase[i] = getTransactionHistory(customers[id])
   }
-  if (matrixAlgorithm(""))
+  console.log(purchase)
 }
 
 
@@ -22,10 +22,17 @@ function matrixAlgorithm(purchases) {
      var restaurants = purchases[j]
      for (var i = 0; i < have_been.length; i++){
        var rest = have_been[i]
-       var
+       var count = occurence(rest, restaurants)
+       if count == 1 {
+         have_been[i]++;
+       }if count == 1 {
+         have_been[i]++;
+       }
+       if count > 1 {
+         have_been[i] = have_been[i]*1.01;
+       }
      }
    }
-
 }
 
 function occurence(search, dataset){
