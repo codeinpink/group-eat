@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('SuggestionsCtrl', function($scope, $stateParams, $state) {
+    .controller('SuggestionsCtrl', function($scope, $stateParams, $state, GooglePlaces) {
         $scope.suggestions = $stateParams.suggestions;
 
         if ($scope.suggestions == null) {

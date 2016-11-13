@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('FriendSelectionCtrl', function($scope, GooglePlaces, Suggestions, $state) {
+    .controller('FriendSelectionCtrl', function($scope, Suggestions, $state) {
         // Replace with service call or hardcode in our info
         $scope.friends = [
             {

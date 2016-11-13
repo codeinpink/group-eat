@@ -1,5 +1,6 @@
 <h1 class="text-center">Suggestions</h1>
-<ul>
+<p class="text-center" ng-if="suggestions.length == 0">You and your friends have nothing in common. Wow.</p>
+<ul ng-if="suggestions.length > 0">
     <li ng-repeat="suggestion in suggestions">
         {{ suggestion }}
         <i class="fa fa-star fa-2x star"></i>
