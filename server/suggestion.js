@@ -2,8 +2,9 @@
 
 
 module.exports = function(customers){
-  var purchases
+  var purchases = {}
   for(var id in customers){
+    console.log(customers[id])
    purchases[id] = getTransactionHistory(customers[id])
   }
   console.log(purchases)
@@ -40,7 +41,6 @@ module.exports = function(customers){
   }
 
 
-  var http = require('http');
   function getTransactionHistory(customerid) {
           var dataString = JSON.stringify(customerid);
           var headers = {'Content-Type': 'application/json'};
@@ -50,10 +50,11 @@ module.exports = function(customers){
           var options = {
               host: host,
               path: endpoint,
-              method: method,
+              method: "GET",
               headers: headers
           };
-
+          console.log(endpoint)
+          var http = require('http');
           var req = http.request(options, function(req) {
               var responseString = '';
               res.on('data', function(data) {
