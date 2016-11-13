@@ -20,7 +20,8 @@ module.exports = function(app) {
       }
       tempDict[(restaurant.name)] = true;
     }
-    console.log(app.model.Restaurants)
+    //console.log(app.model.Restaurants)
+    console.log("import complete")
   });
 }
 
@@ -35,14 +36,14 @@ function createChain(restaurant, app){
           }
         ], function(err, rest) {
             if (err) throw err;
-            console.log('Models created:\n', rest);
+            //console.log('Models created:\n', rest);
             app.models.Chain.create([
             {
                 name: restaurant.name,
                 tags: []
             }], function(err, chain) {
               if (err) throw err;
-              console.log('Models created:\n', chain);
+              //console.log('Models created:\n', chain);
               rest.chain = chain
             });
         });

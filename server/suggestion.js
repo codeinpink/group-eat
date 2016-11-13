@@ -5,7 +5,7 @@ module.exports = function(customers){
   for(var id in friends){
    purchase[i] = getTransactionHistory(customers[id])
   }
-  if (matrixAlgorithm(""))
+  console.log(purchase)
 }
 
 
