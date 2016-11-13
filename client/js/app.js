@@ -11,7 +11,7 @@ angular
             templateUrl: '../../views/suggestions.html',
             controller: 'SuggestionsCtrl',
             params: {
-                suggestions: []
+                suggestions: null
             }
         });
         /* Copy pasted out of laziness
