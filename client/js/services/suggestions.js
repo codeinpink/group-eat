@@ -8,7 +8,7 @@ angular.module('app')
             $http({
                 url: 'http://localhost:3000/suggestions/',
                 method: 'GET',
-                params: {friends: ids}
+                params: {friends: JSON.stringify(ids)}
             }).then(function(response) {
                 callback(response.data);
             }, function(response) {

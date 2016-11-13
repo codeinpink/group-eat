@@ -2,7 +2,7 @@
 <p class="text-center" ng-if="suggestions.length == 0">You and your friends have nothing in common. Wow.</p>
 <ul ng-if="suggestions.length > 0">
     <li ng-repeat="suggestion in suggestions">
-        {{ suggestion }}
+        <h2>{{ suggestion }}</h2>
         <i class="fa fa-star fa-2x star"></i>
     </li>
 </ul>
