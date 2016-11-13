@@ -4,6 +4,11 @@ angular
         // Replace with service call or hardcode in our info
         $scope.friends = [
             {
+                name: 'Bob Ross',
+                customerId: 'a',
+                selected: false
+            },
+            {
                 name: 'Shannon Babincsak',
                 customerId: '5827e897360f81f10454a646',
                 selected: false
@@ -16,6 +21,11 @@ angular
             {
                 name: 'Rain Li',
                 customerId: '5827e8b0360f81f10454a647',
+                selected: false
+            },
+            {
+                name: 'Hoss',
+                customerId: 'b',
                 selected: false
             }
         ];
