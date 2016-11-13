@@ -1,6 +1,6 @@
 angular
     .module('app')
-    .controller('FriendSelectionCtrl', function($scope, GooglePlaces, Suggestions) {
+    .controller('FriendSelectionCtrl', function($scope, GooglePlaces, Suggestions, $state) {
         // Replace with service call or hardcode in our info
         $scope.friends = [
             {
@@ -20,8 +20,9 @@ angular
 
             console.log(selectedFriends);
 
-            Suggestions.getSuggestions(selectedFriends, function(suggestions) {
-                var suggestions = suggestions;
+            Suggestions.getSuggestions(selectedFriends, function(data) {
+                var suggestions = data.suggestions;
+                $state.go('suggestions', {suggestions: suggestions});
             });
         }
     });

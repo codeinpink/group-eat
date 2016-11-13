@@ -5,7 +5,7 @@ angular.module('app')
                 callback(response.data);
             }, function(response) {
                 console.log('Could not get list of suggestions.');
-                callback({});
+                callback({suggestions: []});
             });
         }
 

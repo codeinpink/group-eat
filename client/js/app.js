@@ -5,6 +5,14 @@ angular
             url: '/',
             templateUrl: '../../views/friend-selection.html',
             controller: 'FriendSelectionCtrl'
+        })
+        .state('suggestions', {
+            url: '/suggestions',
+            templateUrl: '../../views/suggestions.html',
+            controller: 'SuggestionsCtrl',
+            params: {
+                suggestions: []
+            }
         });
         /* Copy pasted out of laziness
         $stateProvider.state('add-review', { url: '/add-review', templateUrl: 'views/review-form.html', controller: 'AddReviewController', authenticate: true })
