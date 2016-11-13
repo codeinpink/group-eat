@@ -6,47 +6,72 @@ module.exports = function(app) {
   });
 
   var fs = require('fs');
-  var obj = fs.readFile('./server/boot/restaurants.json', 'utf8', function (err, data) {
+  var obj = fs.readFile('attributed_restaurants.json', 'utf8', function (err, data) {
     if (err) throw err;
     obj = JSON.parse(data);
-    var allRes = obj.map(function(a) {return a.name;}).sort()
-    //console.log(allRes.sort());
-    console.log(allRes.sort());
-    var chains = getChains(allRes).sort();
-    console.log(allRes.length)
-    console.log(chains.length)
-    for (var res in allRes) {
-      if (!isChain(allRes[res],chains)){
-        //console.log(allRes[res])
+    var sorted = obj.sort()
+    var tempDict = {}
+    for (var i = 1; i < sorted.length; i++){
+      var restaurant = sorted[i];
+      if (!restaurant.name in tempDict) {
+        createRestaurant(restaurant, app)
+      } else{
+        createChain(restaurant,app)
       }
+      tempDict[(restaurant.name)] = true;
     }
+    MyProduct.find({
+    where: {price: {lt: 100}},
+    order: 'price ASC',
+    limit: 3
+}, function(err, products) {
+    ...
+});
+    console.log(app.model.Restaurants)
   });
 }
 
-function loadRestaurants(){
+function createChain(restaurant, app){
+  //do add chain
 
+    app.models.Restaurant.create([
+          {
+            id: restaurant.id,
+            name: restaurant.name,
+            address: restaurant.address,
+            chain: {}
+          }
+        ], function(err, rest) {
+            if (err) throw err;
+            console.log('Models created:\n', rest);
+            app.models.Chain.create([
+            {
+                name: restaurant.name,
+                tags: []
+            }], function(err, chain) {
+              if (err) throw err;
+              console.log('Models created:\n', chain);
+              rest.chain = chain
+            });
+        });
 }
 
 
+function createRestaurant(res, app){
 
-function isChain(name,chainList){
-  return chainList.indexOf(name) > -1;
+  //do add Restaurant
 
-}
-
-function getChains(allRestaurant){
-  var i,
-  len=allRestaurant.length,
-  result = [],
-  obj = {};
-  for (i=0; i<len; i++)
-  {
-    obj[allRestaurant[i]]=0;
-  }
-  for (i in obj) {
-    result.push(i);
-  }
-  return result;
+  app.models.Restaurant.create([
+        {
+          id: res.id,
+          name: res.name,
+          address: res.address,
+          chain: {}
+        }
+      ], function(err, rest) {
+          if (err) throw err;
+          console.log('Models created:\n', rest);
+      });
 }
 
 
