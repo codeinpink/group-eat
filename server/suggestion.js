@@ -3,12 +3,22 @@
 
 module.exports = function(customers){
   var purchases = {}
+  var loaded = 0
   for(var id in customers){
-    console.log(customers[id])
+    //console.log(customers[id])
    getTransactionHistory(customers[id], function(data) {
        purchases[id] = data;
+       console.log("loaded")
+       loaded++;
    })
   }
+  console.log(customers.length)
+  while(1){
+    if(loaded == customers.length){
+      break;
+    }
+  }
+  //while(loaded < customers.length);
   console.log(purchases)
 
   function matrixAlgorithm(purchases) {
@@ -46,16 +56,16 @@ module.exports = function(customers){
   function getTransactionHistory(customerid) {
           var dataString = JSON.stringify(customerid);
           var headers = {'Content-Type': 'application/json'};
-          var apikey = "582757c5360f81f104547b42";
+          var apikey = "b51f1f20dc792805a0d31287e4da778b";
           var host = "api.reimaginebanking.com";
-          var endpoint = "/customers/"+customerid+"/accounts?key="+apikey;
+          var endpoint = "/acccounts/"+customerid+"/purchases?key="+apikey;
           var options = {
               host: host,
               path: endpoint,
               method: "GET",
               headers: headers
           };
-          console.log(endpoint)
+
           var http = require('http');
           var req = http.get(options, function(res) {
               var responseString = '';
@@ -64,7 +74,7 @@ module.exports = function(customers){
               });
 
               res.on('end', function() {
-                  console.log(responseString);
+                  //console.log(responseString);
                   var responseObject = JSON.parse(responseString);
                   return responseObject;
               });
