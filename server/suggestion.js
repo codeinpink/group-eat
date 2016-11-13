@@ -20,7 +20,7 @@ module.exports = function(customers){
   }
   //while(loaded < customers.length);
   console.log(purchases)
-
+  //
   function matrixAlgorithm(purchases) {
      var scoreMatrix = {}
      var have_been ={}
@@ -29,7 +29,8 @@ module.exports = function(customers){
        var restaurant_id =  purchases[0][i]['_id']
        have_been[restaurant_id] = have_been[restaurant_id] ? have_been[restaurant_id]*1.01 : 1
      }
-
+     console.log("finished setting initial hasbeen");
+     console.log(have_been)
      for (var j = 1; j < purchases.length; j++){
        var restaurants = purchases[j]
        for (var i = 0; i < have_been.length; i++){
@@ -43,6 +44,22 @@ module.exports = function(customers){
          }
        }
      }
+     console.log("finished setting rest of the  have been");
+     console.log(have_been)
+     found = getMax(have_been);
+     console.log(found)
+  }
+
+  function getMax(restaurants){
+    var max = -1;
+    var max_id = 0;
+    for each (var id in restaurants){
+      if restaurants[id] >= max ){
+        max = restaurants[id]
+        max_id = id
+      }
+    }
+    return max_id
   }
 
   function occurence(search, dataset){
