@@ -2,7 +2,7 @@
 
 module.exports = function(customers){
   var purchases
-  for(var id in friends){
+  for(var id in customers){
    purchase[i] = getTransactionHistory(customers[id])
   }
   console.log(purchase)
@@ -23,12 +23,10 @@ function matrixAlgorithm(purchases) {
      for (var i = 0; i < have_been.length; i++){
        var rest = have_been[i]
        var count = occurence(rest, restaurants)
-       if count == 1 {
-         have_been[i]++;
-       }if count == 1 {
+       if (count == 1) {
          have_been[i]++;
        }
-       if count > 1 {
+       if (count > 1) {
          have_been[i] = have_been[i]*1.01;
        }
      }
