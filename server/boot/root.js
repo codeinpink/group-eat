@@ -13,9 +13,28 @@ module.exports = function(server) {
 
 function getTransactionHistory(customerid) {
         var dataString = JSON.stringify(data);
-        var headers = {};
-        var apikey = "582757c5360f81f104547b42"
-        var host = "http://api.reimaginebanking.com"
-        var endpoint = "/customers/"+customerid+"/accounts?key="+apikey
+        var headers = {'Content-Type': 'application/json'};
+        var apikey = "582757c5360f81f104547b42";
+        var host = "http://api.reimaginebanking.com";
+        var endpoint = "/customers/"+customerid+"/accounts?key="+apikey;
+        var options = {
+            host: host,
+            path: endpoint,
+            method: method,
+            headers: headers
+        };
 
-    }
+        var req = http.request(options, function(req) {
+            var responseString = '';
+            res.on('data', function(data) {
+                responseString += data;
+            });
+
+            res.on('end', function() {
+                console.log(responseString);
+                var responseObject = JSON.parse(responseString);
+            });
+        });
+
+        req.end();
+}
