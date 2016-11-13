@@ -20,20 +20,12 @@ module.exports = function(app) {
       }
       tempDict[(restaurant.name)] = true;
     }
-    MyProduct.find({
-    where: {price: {lt: 100}},
-    order: 'price ASC',
-    limit: 3
-}, function(err, products) {
-    ...
-});
     console.log(app.model.Restaurants)
   });
 }
 
 function createChain(restaurant, app){
   //do add chain
-
     app.models.Restaurant.create([
           {
             id: restaurant.id,
